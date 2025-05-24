@@ -59,7 +59,7 @@ $(document).ready(function(){
     });
 
     // Evento para el botón "No" (escapista)
-    noButton.addEventListener('mouseover', () => {
+    function moveNoButton() {
         const messageRect = document.querySelector('.message').getBoundingClientRect();
         const containerRect = document.querySelector('.container').getBoundingClientRect();
 
@@ -77,6 +77,12 @@ $(document).ready(function(){
         noButton.style.left = newX + 'px';
         noButton.style.top = newY + 'px';
         noButton.style.transition = 'left 0.3s ease, top 0.3s ease'; 
+    }
+
+    noButton.addEventListener('mouseover', moveNoButton);
+    noButton.addEventListener('touchstart', function(e) {
+        e.preventDefault(); // Evita que se haga click
+        moveNoButton();
     });
 
     // Función para crear efecto confeti 
