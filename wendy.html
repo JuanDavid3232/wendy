@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400..900&family=DM+Serif+Display:ital@0;1&family=Dancing+Script:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&family=Quicksand:wght@300..700&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="wendy.css">
+        <title>Confesión de San Valentín</title>
+    </head>
+    <body>
+        <div class="background-gradient"></div>
+        <div class="hearts-container"></div>
+        <div class="clouds-container"></div>
+        <p class="instruction">¡Haz clic en el corazón!</p>
+        <div class="container">
+            <label>
+            <div class="heart">
+                <img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg" alt="Corazón"></img>
+            </div>
+            <input id="messageState" type="checkbox" style="display:none"/>
+            </label>
+            <div class="message">
+                <h1 style="font-family: Cinzel, serif; font-size: 40px; letter-spacing: 1.2px;">¡Hola, Wendy!</h1>
+                <p>
+                    <span>
+                        &emsp; Desde que empezamos a salir, me has caído super bien. Tienes una forma de ser muy especial y me gusta mucho cómo eres. Me divierto mucho cuando estamos juntos y me parece que tenemos buena química.
+                    </span>
+                    <br> <br>
+                    <span>
+                        &emsp; Además, no puedo dejar de decirte que me encanta tu cabello, siempre se ve increíble y me dan ganas de acariciarlo. Y tu cara… tienes una sonrisa y una mirada que me fascinan, de verdad eres muy linda.
+                    </span>
+                    <br> <br>
+                    <span>
+                        &emsp; Quería hacer algo diferente para ti, así que me puse a crear esta página web. Me gusta mucho la tecnología y quería compartir algo de eso contigo. Cada detalle que ves aquí lo hice pensando en ti.
+                    </span>
+                    <br> <br>
+                    <span>
+                        &emsp; ¿Qué te parece si seguimos conociéndonos? Podríamos hacer más cosas juntos, como aprender a crear páginas web o simplemente pasar tiempo juntos. Me gustaría mucho que siguiéramos compartiendo momentos.
+                    </span>
+                </p>
+                <br>
+                <div class="buttons">
+                    <button id="yes-button" class="yes-button">¡Claro que sí! 😊</button>
+                    <button id="no-button" class="no-button">Déjame pensarlo...</button>
+                </div>
+                <div id="response-container" style="text-align: center; margin-top: 20px;"></div>
+                <div class="sincere">
+                    <p style="font-weight: bold;">Un abrazo,</p>
+                    <p>David 💖</p>
+                 </div>
+            </div>
+        </div>
+        
+        <script src="jquery.js"></script>
+        <script src="jquery2.1.js"></script>
+        <script defer src="valentine-confession.js"></script>
+        <script>
+            // Script para corazones
+            const heartsContainer = document.querySelector('.hearts-container');
+            const numberOfHearts = 15;
+
+            for (let i = 0; i < numberOfHearts; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart-shape');
+                heart.style.left = Math.random() * 100 + 'vw';
+                heart.style.animationDuration = (Math.random() * 5 + 5) + 's'; // Duración corazón
+                heart.style.animationDelay = Math.random() * 5 + 's'; // Retraso corazón
+                heartsContainer.appendChild(heart);
+            }
+
+            // Script para nubes
+            const cloudsContainer = document.querySelector('.clouds-container');
+            const numberOfClouds = 8; // Puedes ajustar este número
+
+            for (let i = 0; i < numberOfClouds; i++) {
+                const cloud = document.createElement('div');
+                cloud.classList.add('cloud');
+                
+                // Posición vertical aleatoria (ej: entre 5% y 60% de la altura)
+                cloud.style.top = (Math.random() * 55 + 5) + 'vh'; 
+                
+                // Tamaño aleatorio para variar
+                const scale = Math.random() * 0.5 + 0.7; // Escala entre 0.7 y 1.2
+                cloud.style.transform = `scale(${scale})`;
+                cloud.style.opacity = Math.random() * 0.4 + 0.5; // Opacidad entre 0.5 y 0.9
+
+                // Duración y retraso aleatorios para la animación
+                cloud.style.animationDuration = (Math.random() * 20 + 20) + 's'; // Duración entre 20s y 40s
+                cloud.style.animationDelay = Math.random() * 20 + 's'; // Retraso entre 0s y 20s
+                
+                cloudsContainer.appendChild(cloud);
+            }
+        </script>
+    </body>
+</html>
